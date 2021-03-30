@@ -2,9 +2,10 @@ FROM node:15.11.0-alpine
 
 ENV PATH ./node_modules/.bin:$PATH
 
-RUN apk add --no-cache --upgrade bash
+RUN apk add --no-cache --upgrade bash man git
+#RUN apk update && apk add man less joe vim wget curl zip unzip net-tools links2 netcat jq git-lfs
 
-WORKDIR /apptest
+WORKDIR /app
 
 RUN npm install -g npm@7.7.6
 RUN npm install -g @vue/cli
