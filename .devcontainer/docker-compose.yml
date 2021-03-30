@@ -10,3 +10,4 @@ services:
     volumes:
       # Needed for backwards compatibility with "clone in Windows"
       - ../:/app
+
