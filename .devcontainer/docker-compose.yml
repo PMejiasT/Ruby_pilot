@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  app-rubi:
+    container_name: app-rubi
+    build:
+      context: .
+      dockerfile: Dockerfile_dev
+    tty: true
+    volumes:
+      # Needed for backwards compatibility with "clone in Windows"
+      - ../:/app

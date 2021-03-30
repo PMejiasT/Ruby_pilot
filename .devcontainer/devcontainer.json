@@ -1,0 +1,24 @@
+{
+	"name": "appRubi",
+	"dockerComposeFile": ["docker-compose.yml"],
+	"service": "app-rubi",
+    "workspaceFolder": "/app",
+ 	"extensions": [
+	"bmewburn.vscode-intelephense-client",
+    "eamodio.gitlens",
+	"dariofuzinato.vue-peek",
+    "octref.vetur",
+	"spmeesseman.vscode-taskexplorer",
+	"ms-azuretools.vscode-docker"
+	],
+	"shutdownAction": "stopCompose",
+	"settings":{
+		"files.associations": {
+			"Dockerfile*": "dockerfile"
+		},
+		"terminal.integrated.fontSize": 16,
+		"remote.extensionKind": {
+			"ms-azuretools.vscode-docker": "ui"
+		}
+	}
+}
