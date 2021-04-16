@@ -21,29 +21,29 @@
 <script>
 export default {
   data: () => ({
-    newTask: "",
+    newTask: '',
     tasks: []
   }),
   methods: {
-    createTask() {
-      let task = {
+    createTask () {
+      const task = {
         text: this.newTask,
         completed: false
-      };
-      this.tasks.push(task);
-      this.newTask = "";
-      console.log(this.tasks);
+      }
+      this.tasks.push(task)
+      this.newTask = ''
+      console.log(this.tasks)
     },
-    completeTask(taskText) {
+    completeTask (taskText) {
       for (let i = 0; i < this.tasks.length; i++) {
-        let task = this.tasks[i];
+        const task = this.tasks[i]
         if (taskText === task.text) {
-          task.completed = !task.completed;
+          task.completed = !task.completed
         }
       }
     }
   }
-};
+}
 </script>
 <style scoped>
 .task-list {
