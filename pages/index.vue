@@ -6,6 +6,7 @@
     <ul>
       <li v-for="post in posts" :key="post.sys.id">
         {{ post.fields.title }}
+        <img :src="post.fields.heroImage.fields.file.url" style="width: 250px;">
       </li>
     </ul>
   </div>
