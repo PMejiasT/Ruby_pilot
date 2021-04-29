@@ -1,17 +1,12 @@
 <template>
   <div>
-     <TheHeader />
-    <main>
-      <ul>
-        <li v-for="offer in offers" :key="offer.sys.id">
-          {{ offer.fields.title }}
-          <img :src="offer.fields.image.fields.file.url" style="width: 250px;">
-          <p v-for="offertext in offer.fields.body.content" :key="offertext">
-          {{ offertext.value }}
+    <div v-for="offer in offers" :key="offer.sys.id">
+        {{ offer.fields.title }}
+        <img :src="offer.fields.image.fields.file.url" style="width: 250px;">
+        <p v-for="offertext in offer.fields.body.content" :key="offertext">
+        {{ offertext.value }}
           </p>
-        </li>
-      </ul>
-    </main>
+    </div>
   </div>
 </template>
 
@@ -70,3 +65,4 @@ export default {
   padding-top: 15px;
 }
 </style>
+

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <nuxt/>
+    <TheHeader />
+    <main>
+      <img src="~/assets/pokemon-ruby.png" />
+      <Nuxt />
+    </main>
   </div>
 </template>
 
