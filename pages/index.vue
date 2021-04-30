@@ -6,9 +6,7 @@
         <li v-for="offer in offers" :key="offer.sys.id">
           {{ offer.fields.title }}
           <img :src="offer.fields.image.fields.file.url" style="width: 250px;">
-          <p v-for="offertext in offer.fields.body.content" :key="offertext">
-          {{ offertext.value }}
-          </p>
+          <div v-html="printRichText(offer.fields.body)" />
         </li>
       </ul>
     </main>
@@ -16,9 +14,15 @@
 </template>
 
 <script>
-import {createClient} from '~/plugins/contentful.js'
-//import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { createClient } from '~/plugins/contentful.js'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 const client = createClient()
+const options = {
+  renderNode: {
+    'embedded-asset-block': (node) =>
+      `<img class="img-fluid" src="${node.data.target.fields.file.url}" style="width: 200px;" />`
+  }
+}
 
 export default {
   // `env` is available in the context object
@@ -36,7 +40,12 @@ export default {
         offers: offers.items
       }
     }).catch(console.error)
-  }
+  },
+  methods: {
+      printRichText(richText) {
+        return documentToHtmlString(richText, options)
+      }
+    }
 }
 </script>
 
