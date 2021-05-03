@@ -1,12 +1,10 @@
 <template>
   <div>
-     <TheHeader />
+    <TheHeader />
     <main>
       <ul>
         <li v-for="offer in offers" :key="offer.sys.id">
-          {{ offer.fields.title }}
-          <img :src="offer.fields.image.fields.file.url" style="width: 250px;">
-          <div v-html="printRichText(offer.fields.body)" />
+          <Offer :offer="offer" :offerbody="printRichText(offer.fields.body)" />
         </li>
       </ul>
     </main>
@@ -14,10 +12,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { createClient } from '~/plugins/contentful.js'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Offer from '@/components/Offer';
+
 const client = createClient()
-const options = {
+const richTextOptions = {
   renderNode: {
     'embedded-asset-block': (node) =>
       `<img class="img-fluid" src="${node.data.target.fields.file.url}" height="${node.data.target.fields.file.details.image.height}" width="${node.data.target.fields.file.details.image.width}" alt="${node.data.target.fields.description}" />`,
@@ -31,7 +32,11 @@ const options = {
   }
 }
 
-export default {
+export default Vue.extend({
+  name: 'Index',
+  components: {
+    Offer,
+  },
   // `env` is available in the context object
   asyncData ({env}) {
     return Promise.all([
@@ -49,11 +54,11 @@ export default {
     }).catch(console.error)
   },
   methods: {
-      printRichText(richText) {
-        return documentToHtmlString(richText, options)
-      }
+    printRichText(richText) {
+      return documentToHtmlString(richText, richTextOptions)
     }
-}
+  }
+})
 </script>
 
 <style>
