@@ -20,7 +20,14 @@ const client = createClient()
 const options = {
   renderNode: {
     'embedded-asset-block': (node) =>
-      `<img class="img-fluid" src="${node.data.target.fields.file.url}" style="width: 200px;" />`
+      `<img class="img-fluid" src="${node.data.target.fields.file.url}" height="${node.data.target.fields.file.details.image.height}" width="${node.data.target.fields.file.details.image.width}" alt="${node.data.target.fields.description}" />`,
+    'hyperlink': (node) => {
+      if((node.data.uri).includes("player.vimeo.com/video")){
+        return `<iframe title="Unique Title 001" src=${node.data.uri} width="500" height="350" frameBorder="0" allowFullScreen></iframe>`
+      } else if((node.data.uri).includes("youtube.com/embed")) {
+        return `<iframe title="Unique Title 002" src=${node.data.uri} width="500" height="350" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe>`
+      }
+    }
   }
 }
 
