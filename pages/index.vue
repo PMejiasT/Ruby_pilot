@@ -1,14 +1,10 @@
 <template>
   <div>
-     <TheHeader />
+    <TheHeader />
     <main>
       <ul>
         <li v-for="offer in offers" :key="offer.sys.id">
-          {{ offer.fields.title }}
-          <img :src="offer.fields.image.fields.file.url" style="width: 250px;">
-          <p v-for="offertext in offer.fields.body.content" :key="offertext">
-          {{ offertext.value }}
-          </p>
+          <Offer :offer="offer" :offerbody="printRichText(offer.fields.body)" />
         </li>
       </ul>
     </main>
@@ -16,11 +12,31 @@
 </template>
 
 <script>
-import {createClient} from '~/plugins/contentful.js'
-//import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-const client = createClient()
+import Vue from 'vue'
+import { createClient } from '~/plugins/contentful.js'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Offer from '@/components/Offer';
 
-export default {
+const client = createClient()
+const richTextOptions = {
+  renderNode: {
+    'embedded-asset-block': (node) =>
+      `<img class="img-fluid" src="${node.data.target.fields.file.url}" height="${node.data.target.fields.file.details.image.height}" width="${node.data.target.fields.file.details.image.width}" alt="${node.data.target.fields.description}" />`,
+    'hyperlink': (node) => {
+      if((node.data.uri).includes("player.vimeo.com/video")){
+        return `<iframe title="Unique Title 001" src=${node.data.uri} width="500" height="350" frameBorder="0" allowFullScreen></iframe>`
+      } else if((node.data.uri).includes("youtube.com/embed")) {
+        return `<iframe title="Unique Title 002" src=${node.data.uri} width="500" height="350" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe>`
+      }
+    }
+  }
+}
+
+export default Vue.extend({
+  name: 'Index',
+  components: {
+    Offer,
+  },
   // `env` is available in the context object
   asyncData ({env}) {
     return Promise.all([
@@ -36,8 +52,13 @@ export default {
         offers: offers.items
       }
     }).catch(console.error)
+  },
+  methods: {
+    printRichText(richText) {
+      return documentToHtmlString(richText, richTextOptions)
+    }
   }
-}
+})
 </script>
 
 <style>
