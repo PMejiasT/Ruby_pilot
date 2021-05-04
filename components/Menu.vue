@@ -1,32 +1,41 @@
 <template>
-  <nav>
-    <ul>
-      <li>
-        <NuxtLink to="/">Home</NuxtLink>
-      </li>
-      <li>
-        <NuxtLink to="/">parent</NuxtLink>
-      </li>
-    </ul>
-  </nav>
+  <div class="menu">
+    <div class="item"><NuxtLink to="/">Home</NuxtLink></div>
+    <div class="item"><NuxtLink to="/offers">Ofertas</NuxtLink></div>
+  </div>
 </template>
 
-<style scoped>
-nav {
-  padding: 0 1rem;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
+<style lang="scss">
+.menu {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  min-height: 45px;
 }
-
-li {
-  margin: 0 0.5rem;
-  padding: 0.25rem;
-  font-size: 1.2rem;
+.menu .item {
+  line-height: 25px;
+  background-color: $app-main-color;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.menu .item:hover {
+  background-color: $app-main-hover-color;
+}
+@media (max-width: $breakpoint-md) {
+  .hide-small {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+  .menu .item {
+    line-height: 25px;
+    background-color: #cfd638;
+    margin: 10px auto;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+  }
 }
 </style>
