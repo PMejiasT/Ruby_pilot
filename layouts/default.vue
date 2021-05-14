@@ -1,12 +1,37 @@
 <template>
   <div>
-    <TheHeader />
+    <Menu />
     <main>
-      <img src="~/assets/pokemon-ruby.png" />
+      <img src="~/assets/img/pokemon-ruby.png" />
       <Nuxt />
     </main>
+    <Footer />
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import Menu from '~/components/Menu';
+import Footer from '~/components/Footer';
+
+export default Vue.extend({
+  components: {
+    Menu,
+    Footer,
+  },
+  data() {
+    return {
+      showMobileMenu: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.showMobileMenu = !this.showMobileMenu;
+    },
+  },
+
+});
+</script>
 
 <style>
 html {

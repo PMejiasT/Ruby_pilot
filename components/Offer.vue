@@ -25,4 +25,20 @@ export default Vue.extend({
 })
 </script>
 
-
+<style lang="scss">
+.offer {
+  width: 30%;
+  margin-top: 90px;
+  margin-bottom: 20px;
+}
+@media (max-width: $breakpoint-lg) and (min-width: $breakpoint-md+1) {
+  .offer {
+    width: 45%;
+  }
+}
+@media (max-width: $breakpoint-md) {
+  .offer {
+    width: 100%;
+  }
+}
+</style>

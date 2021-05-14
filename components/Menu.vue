@@ -1,9 +1,16 @@
 <template>
   <div class="menu">
-    <div class="item"><NuxtLink to="/">Home</NuxtLink></div>
+    <div class="item"><NuxtLink to="/">Inicio</NuxtLink></div>
     <div class="item"><NuxtLink to="/offers">Ofertas</NuxtLink></div>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
+  name: 'Menu',
+});
+</script>
 
 <style lang="scss">
 .menu {
