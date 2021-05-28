@@ -2,7 +2,6 @@
   <div>
     <Menu />
     <main>
-      <img src="~/assets/img/pokemon-ruby.png" />
       <Nuxt />
     </main>
     <Footer />

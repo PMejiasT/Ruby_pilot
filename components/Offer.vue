@@ -31,12 +31,12 @@ export default Vue.extend({
   margin-top: 90px;
   margin-bottom: 20px;
 }
-@media (max-width: $breakpoint-lg) and (min-width: $breakpoint-md+1) {
+@media (max-width: 960px) and (min-width: 540px+1) {
   .offer {
     width: 45%;
   }
 }
-@media (max-width: $breakpoint-md) {
+@media (max-width: 540px) {
   .offer {
     width: 100%;
   }

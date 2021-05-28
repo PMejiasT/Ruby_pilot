@@ -21,15 +21,15 @@ export default Vue.extend({
 }
 .menu .item {
   line-height: 25px;
-  background-color: $app-main-color;
+  background-color: #cfd638;
   margin: 5px;
   padding: 5px;
   cursor: pointer;
 }
 .menu .item:hover {
-  background-color: $app-main-hover-color;
+  background-color: #c9d12c;
 }
-@media (max-width: $breakpoint-md) {
+@media (max-width: 540px) {
   .hide-small {
     display: none;
   }
