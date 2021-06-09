@@ -1,48 +1,39 @@
 <template>
-  <div class="menu">
-    <div class="item"><NuxtLink to="/">Inicio</NuxtLink></div>
-    <div class="item"><NuxtLink to="/offers">Ofertas</NuxtLink></div>
+  <div id="app">
+    <Topbar @togglenav="navOpen = !navOpen" />
+    <Sidebar :open="navOpen" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Topbar from '~/components/Topbar';
+import Sidebar from '~/components/Sidebar';
+
 export default Vue.extend({
   name: 'Menu',
+  data: () => {
+    return {
+      navOpen: false
+    }
+  },
+  components: {
+    Topbar,
+    Sidebar
+  }
 });
 </script>
 
 <style lang="scss">
-.menu {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  min-height: 45px;
-}
-.menu .item {
-  line-height: 25px;
-  background-color: #cfd638;
-  margin: 5px;
-  padding: 5px;
-  cursor: pointer;
-}
-.menu .item:hover {
-  background-color: #c9d12c;
-}
-@media (max-width: 540px) {
-  .hide-small {
-    display: none;
+  * {
+    box-sizing: border-box;
   }
-  .menu {
-    display: block;
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  .menu .item {
-    line-height: 25px;
-    background-color: #cfd638;
-    margin: 10px auto;
-    padding: 10px;
-    width: 50%;
-    text-align: center;
-  }
-}
 </style>
