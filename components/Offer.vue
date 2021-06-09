@@ -27,7 +27,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .offer {
-  width: 30%;
   margin-top: 90px;
   margin-bottom: 20px;
 }
