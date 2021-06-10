@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1>Inicio</h1>
-    <div class="imagenRuby">
-      <img src="~/assets/img/pokemon-ruby.png" />
-    </div>
+    <h1 class="textWeb titleG">Inicio</h1>
+    <div class="imagenRuby"></div>
+  </div>
 </template>
 
 <script>
@@ -17,11 +16,13 @@ export default {
 <style lang="scss">
 .imagenRuby{
   display:inline-block;
-  width:800px;
-  height:600px;
+  width:100%;
+  height:calc(100vh - 50px - 40px);
   box-sizing:border-box;
-  margin-top:40px;
   position:relative;
+  background-image: url("~/assets/img/pokemon-ruby.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 .column, .blind, .blindImg{
   position:absolute;
