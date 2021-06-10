@@ -64,12 +64,16 @@ export default Vue.extend({
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-image: url("~/assets/img/wallpaper.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
 }
 .offerItem {
   width: 30%;
   margin-top: 90px;
   margin-bottom: 20px;
-  background-color: rgba(128, 80, 80, 0.5);
+  background-color: rgba(235, 238, 241, 0.5);
 }
 .offerItem:hover {
   -webkit-transform: rotateY(360deg);

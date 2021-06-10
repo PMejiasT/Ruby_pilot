@@ -1,7 +1,7 @@
 <template>
   <div class="offer">
     <h2 class="titleOffer textWeb">{{ offer.fields.title }}</h2>
-    <img class="imgOffer" :src="offer.fields.image.fields.file.url" style="width: 250px;">
+    <img class="imgOffer" :src="offer.fields.image.fields.file.url">
     <div class="bodyOffer textWeb" v-html="offerbody" />
   </div>
 </template>
@@ -26,6 +26,15 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+img {
+  width: 350px;
+  height: auto;
+}
+iframe {
+  width: 350px;
+  height: auto;
+}
+
 .offer {
   margin-top: 90px;
   margin-bottom: 20px;
