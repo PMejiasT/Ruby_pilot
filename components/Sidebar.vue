@@ -2,7 +2,7 @@
   <transition name="show">
     <div class="sidebar" v-if="open">
       <transition-group appear name="fade">
-        <a :href="item[0]" class="sidebar-element" v-for="(item, index) in navElements" :key="item" :style="{'--index': index}"> {{ item[1] }}</a>
+        <a :href="item[0]" class="sidebar-element textWeb" v-for="(item, index) in navElements" :key="item" :style="{'--index': index}"> {{ item[1] }}</a>
       </transition-group>
     </div>
   </transition>
@@ -23,15 +23,15 @@
 </script>
 <style lang="scss" scoped>
   .sidebar {
-    display: flex;
     justify-content: flex-start;
     align-items: center;
-    position: relative;
+    position: absolute;
     flex-direction: column;
     width: 60px;
     height: calc(100vh - 50px);
     padding-top: 48px;
     background-color: rgba($color: #242424, $alpha: .6);
+    z-index: 99;
     .sidebar-element {
       display: flex;
       justify-content: center;
@@ -42,6 +42,7 @@
       cursor: pointer;
       color: #fefefe;
       background-color: #242424;
+      text-decoration:none;
     }
   }
   .show {
@@ -53,14 +54,14 @@
       transition: all 500ms;
     }
   }
-  .fade {   
+  .fade {
     &-enter {
       opacity: 0;
       transform: translateX(-60px);
     }
-    &-enter-active { 
+    &-enter-active {
       transition: all 500ms ease-in-out;
       transition-delay: calc( 50ms * var(--index) );
-    }   
+    }
   }
 </style>

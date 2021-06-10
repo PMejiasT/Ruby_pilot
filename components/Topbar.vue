@@ -1,7 +1,7 @@
 <template>
   <div class="topbar">
     <div>
-      <span @click="$emit('togglenav')">MENU</span>
+      <span class="textWeb" @click="$emit('togglenav')">MENU</span>
     </div>
   </div>
 </template>
