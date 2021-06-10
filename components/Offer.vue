@@ -1,8 +1,8 @@
 <template>
   <div class="offer">
-    <h2>{{ offer.fields.title }}</h2>
-    <img :src="offer.fields.image.fields.file.url" style="width: 250px;">
-    <div v-html="offerbody" />
+    <h2 class="titleOffer textWeb">{{ offer.fields.title }}</h2>
+    <img class="imgOffer" :src="offer.fields.image.fields.file.url" style="width: 250px;">
+    <div class="bodyOffer textWeb" v-html="offerbody" />
   </div>
 </template>
 
@@ -29,6 +29,16 @@ export default Vue.extend({
 .offer {
   margin-top: 90px;
   margin-bottom: 20px;
+}
+.titleOffer {
+  font-size: 30px;
+}
+.imgOffer{
+  cursor: pointer;
+  border-radius: 20px;
+}
+.bodyOffer {
+  font-size: 17x;
 }
 @media (max-width: 960px) and (min-width: 540px+1) {
   .offer {

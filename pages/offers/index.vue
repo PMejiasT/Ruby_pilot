@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="titleOffer">Offers</h1>
+    <h1 class="textWeb titleG">Offers</h1>
     <div class="offers">
       <div class="offerItem" v-for="offer in offers" :key="offer.sys.id">
         <Offer :offer="offer" :offerbody="printRichText(offer.fields.body)" />
@@ -69,31 +69,14 @@ export default Vue.extend({
   width: 30%;
   margin-top: 90px;
   margin-bottom: 20px;
+  background-color: rgba(128, 80, 80, 0.5);
 }
-.titleOffer {
-    position: absolute;
-    top: 50%; 
-    right: 50%;
-    transform: translate(50%,-50%);
-    text-transform: uppercase;
-    font-family: verdana;
-    font-size: 12em;
-    font-weight: 700;
-    color: #f5f5f5;
-    text-shadow: 1px 1px 1px #919191,
-        1px 2px 1px #919191,
-        1px 3px 1px #919191,
-        1px 4px 1px #919191,
-        1px 5px 1px #919191,
-        1px 6px 1px #919191,
-        1px 7px 1px #919191,
-        1px 8px 1px #919191,
-        1px 9px 1px #919191,
-        1px 10px 1px #919191,
-    1px 18px 6px rgba(16,16,16,0.4),
-    1px 22px 10px rgba(16,16,16,0.2),
-    1px 25px 35px rgba(16,16,16,0.2),
-    1px 30px 60px rgba(16,16,16,0.4);
+.offerItem:hover {
+  -webkit-transform: rotateY(360deg);
+  -webkit-transform-style: preserve-3d;
+  transform: rotateY(360deg);
+  transform-style: preserve-3d;
+  transition: all 2s ease-in-out;
 }
 
 .container {
