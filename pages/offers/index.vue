@@ -72,7 +72,9 @@ export default Vue.extend({
 .offerItem {
   width: 30%;
   margin-top: 90px;
-  margin-bottom: 20px;
+  margin-bottom: 90px;
+  margin-right: 20px;
+  margin-left: 20px;
   background-color: rgba(235, 238, 241, 0.5);
 }
 .offerItem:hover {
