@@ -65,8 +65,7 @@ export default Vue.extend({
   flex-wrap: wrap;
   justify-content: space-between;
   background-image: url("~/assets/img/wallpaper.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: contain;
   background-attachment: fixed;
 }
 .offerItem {
