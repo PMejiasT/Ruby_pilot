@@ -20,9 +20,10 @@ export default {
   height:calc(100vh - 50px - 40px);
   box-sizing:border-box;
   position:relative;
-  background-image: url("~/assets/img/pokemon-ruby.png");
+  background-image: url("~/assets/img/pokemonRuby.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
+  background-attachment: fixed;
 }
 .column, .blind, .blindImg{
   position:absolute;
